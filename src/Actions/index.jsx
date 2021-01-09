@@ -19,3 +19,21 @@ export const fetchPageData = () => async (dispatch) => {
         }
     })
 }
+
+export const EditDetails = (values) => {
+    return async (dispatch) => {
+        const response = await axios.put(`https://reqres.in/api/users/${values.id}`,{
+            email: values.email,
+            first_name: values.first_name,
+            last_name: values.last_name,
+            avatar: values.avatar
+        })
+        dispatch({
+            type: "EDIT_USERS_DATA",
+            payload: {
+               data: response.data,
+                id: values.id
+            }
+        })
+    }
+}

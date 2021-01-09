@@ -17,6 +17,11 @@ export default (state=INITIAL_STATE, action) => {
                 perPage: action.payload.perPage,
                 totalCount: action.payload.totalCount
             };
+        case "EDIT_USERS_DATA":
+           let index = state.users.findIndex((user,index) => user.id === action.payload.id );
+           const newUsers = [...state.users];
+           newUsers[index] = action.payload.data;
+            return {...state, users: newUsers }
         default:
             return state;
     }

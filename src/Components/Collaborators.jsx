@@ -2,7 +2,8 @@ import React, {useEffect} from 'react';
 import {Row, Col, Card, Pagination, Button} from 'antd'
 import {connect} from "react-redux";
 import {fetchPageData, fetchUser} from "../Actions";
-import { MailOutlined,EditOutlined} from '@ant-design/icons'
+import { MailOutlined} from '@ant-design/icons'
+import EditUserDetails from "./EditUserDetials";
 
 const Collaborators = (props) => {
 
@@ -22,7 +23,7 @@ const Collaborators = (props) => {
                             <Button type="text" href={`mailto:${user.email}`} icon={<MailOutlined />}>Email</Button>
                         </Col>
                         <Col>
-                            <Button type="text" color="blue" icon={<EditOutlined />}>Edit</Button>
+                            <EditUserDetails user={user} />
                         </Col>
                     </Row>
                 </Card>
