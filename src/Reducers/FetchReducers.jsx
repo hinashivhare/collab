@@ -1,4 +1,4 @@
-import { fetchUser ,fetchPageData } from '../Actions'
+import { fetchUser ,fetchPageData, DeleteUser} from '../Actions'
 
 const INITIAL_STATE = {
     pageCount: null,
@@ -22,6 +22,13 @@ export default (state=INITIAL_STATE, action) => {
            const newUsers = [...state.users];
            newUsers[index] = action.payload.data;
             return {...state, users: newUsers }
+        case "DELETE_USER":
+            let deleteIndex = state.users.findIndex((user,index) => user.id === action.payload);
+             const filtered = state.users.filter(function(value, i){
+                 return i !== deleteIndex;
+             })
+            return {...state, users: filtered}
+
         default:
             return state;
     }

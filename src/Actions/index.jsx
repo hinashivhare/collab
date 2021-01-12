@@ -37,3 +37,13 @@ export const EditDetails = (values) => {
         })
     }
 }
+
+export const DeleteUser = (id) => {
+    return async (dispatch) => {
+        const response = await axios.delete(`https://reqres.in/api/users/${id}`)
+        dispatch({
+            type: "DELETE_USER",
+            payload: id
+        })
+    }
+}

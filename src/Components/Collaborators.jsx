@@ -4,6 +4,7 @@ import {connect} from "react-redux";
 import {fetchPageData, fetchUser} from "../Actions";
 import { MailOutlined} from '@ant-design/icons'
 import EditUserDetails from "./EditUserDetials";
+import DeleteCollaborators from "./DeleteCollaborators";
 
 const Collaborators = (props) => {
 
@@ -16,6 +17,9 @@ const Collaborators = (props) => {
         return (
             <Col span={6}>
                 <Card style={{background: "#ebeff2", margin: "10px" }}>
+                    <Row justify="end">
+                      <DeleteCollaborators user = {user}/>
+                    </Row>
                    <Row justify="center"> <img src={user.avatar}/></Row>
                     <Row className="user_name" justify="center">{user.first_name} {user.last_name}</Row>
                     <Row className="profile_button" justify="space-around">

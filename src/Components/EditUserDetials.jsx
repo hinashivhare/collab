@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {Button, Col, Row, Modal, Form, Input} from 'antd'
+import {Button, Row, Modal, Form, Input} from 'antd'
 import {EditOutlined} from "@ant-design/icons";
 import { EditDetails } from '../Actions'
 import { connect } from 'react-redux'
